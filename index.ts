@@ -40,30 +40,28 @@ async function main() {
           .addContent(
             factory.createFile({
               name: "example",
-              description: "test1",
+              description: "test2",
             })
           )
           .addFooter("EOF")
       : new FileBuilder().addContent(
           factory.createFile({
             name: "example",
-            description: "test1",
+            description: "test2",
           })
         );
 
   const fileContent = fileBuilder.build();
 
-  const fileProxy = new FileAccessProxy(true);
-  console.log("s3", options["uses3"]);
   const storage = options["uses3"]
     ? new S3FileStorage()
     : new LocalFileStorage();
+  const fileProxy = new FileAccessProxy(storage, true, true, true);
 
   const outputPath = `${options.output}.${options.type}`;
 
   try {
-    fileProxy.writeFile(outputPath, fileContent);
-    storage.saveFile(outputPath, fileContent);
+    fileProxy.saveFile(outputPath, fileContent);
     console.log("File generation complete!");
   } catch (error) {
     console.error("Error generating file:", error);
