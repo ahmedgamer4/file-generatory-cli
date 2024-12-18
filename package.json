@@ -1,0 +1,17 @@
+{
+  "name": "file-generator-cli",
+  "module": "index.ts",
+  "type": "module",
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/s3rver": "^3.7.4"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.1692.0",
+    "commander": "^12.1.0",
+    "s3rver": "^3.7.1"
+  }
+}
