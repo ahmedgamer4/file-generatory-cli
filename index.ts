@@ -55,10 +55,9 @@ async function main() {
 
   const fileProxy = new FileAccessProxy(true);
   console.log("s3", options["uses3"]);
-  // const storage = options["uses3"]
-  //   ? new S3FileStorage()
-  //   : new LocalFileStorage();
-  const storage = new S3FileStorage();
+  const storage = options["uses3"]
+    ? new S3FileStorage()
+    : new LocalFileStorage();
 
   const outputPath = `${options.output}.${options.type}`;
 
