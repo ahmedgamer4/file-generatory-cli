@@ -1,3 +1,10 @@
+/**
+ * Target interface: FileStorage
+ * Adaptee: Bun file API
+ * Adapted Methods: Bun.file, Bun.write
+ * Responsibiliity: Brides Bun API to FileStorage
+ */
+
 import type { FileStorage } from "./file.storage";
 
 export class LocalFileStorage implements FileStorage {

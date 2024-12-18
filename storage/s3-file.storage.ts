@@ -1,3 +1,10 @@
+/**
+ * Target interface: FileStorage
+ * Adaptee: AWS S3 SDK
+ * Adapted Methods: getObject, putObject
+ * Responsibiliity: Brides S3 API to FileStorage
+ */
+
 import type { FileStorage } from "./file.storage";
 import AWS from "aws-sdk";
 
